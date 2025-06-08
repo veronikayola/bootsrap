@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Nama dan Umur</title>
+</head>
+<body>
+    <h2>Form Validasi Nama dan Umur</h2>
+    <p>Masukkan nama dan umur Anda:</p>
+
+    <form onsubmit="return validateInput()">
+        <label>Nama : </label>
+        <input type="text" id="nama"><br><br>
+
+        <label>Umur : </label>
+        <input type="number" id="umur"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="hasil"></p>
+
+    <script>
+        function validateInput() {
+            let nama = document.getElementById("nama").value.trim();
+            let umur = parseInt(document.getElementById("umur").value);
+            let hasil = document.getElementById("hasil");
+
+            if (nama === "") {
+                alert("Isikan nama!!");
+                return false;
+            }
+
+            if (umur < 0 || isNaN(umur)) {
+                hasil.innerHTML = "Anda Game Over";
+            } else if (umur < 5) {
+                hasil.innerHTML = "Anda masih bayi";
+            } else if (umur >= 6 && umur <= 15) {
+                hasil.innerHTML = "Anda masih anak-anak";
+            } else if (umur >= 16 && umur <= 30) {
+                hasil.innerHTML = "Anda masih remaja";
+            } else if (umur >= 31 && umur <= 60) {
+                hasil.innerHTML = "Anda sudah dewasa";
+            } else if (umur > 61) {
+                hasil.innerHTML = "Anda sudah dewasa";
+            } else {
+                hasil.innerHTML = "Anda Game Over";
+            }
+
+            return false; // Mencegah form dikirim
+        }
+    </script>
+</body>
+</html>

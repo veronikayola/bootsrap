@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M6_493426_Veronika Yola Aditya_Leaflet Web Map_SIG Web</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        /* Styling untuk peta */
+        #map {
+            width: 100%;
+            height: 90vh;
+            border-radius: 10px;
+        }
+
+        /* Styling untuk judul utama agar berada di tengah */
+        .map-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 12px 24px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        /* Styling untuk popup agar judul dan gambar berada di tengah */
+        .popup-content {
+            text-align: center;
+        }
+
+        .popup-content img {
+            width: 200px; /* Ubah ukuran gambar */
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .popup-content h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .popup-content p {
+            font-size: 14px;
+            text-align: justify;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Kontainer untuk Peta dan Judul -->
+    <div class="container">
+        <div class="map-title">10 Tempat Bersejarah di DKI Jakarta</div>
+        <div id="map"></div>
+    </div>
+
+    <script>
+        // Inisialisasi peta
+        var map = L.map('map', {
+            center: [-6.20100, 106.8456], // Koordinat Jakarta
+            zoom: 12
+        });
+
+        // Menambahkan tile layer dari OpenStreetMap
+       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Menambahkan marker dengan popup
+var marker = L.marker([- 6.1754, 106.8272]).bindPopup(`
+    <div class="popup-content">
+        <h3>Monumen Nasional (Monas)</h3>
+        <img src="https://www.iwarebatik.org/wp-content/uploads/2019/11/monas.jpg">
+        <p>Monumen Nasional (Monas) terletak di Gambir, Jakarta Pusat, Monas adalah simbol perjuangan kemerdekaan Indonesia. Dengan puncak emas setinggi 132 meter, monumen ini memiliki museum di dalamnya yang berisi diorama perjalanan sejarah bangsa.</p>
+    </div>`).addTo(map);
+var marker = L.marker([- 6.1704, 106.8311]).bindPopup(`
+    <div class="popup-content">
+        <h3>Masjid Istiqlal</h3>
+        <img src="https://img.okezone.com/content/2021/06/18/615/2427318/5-keistimewaan-masjid-istiqlal-pintu-gerbang-bermakna-7-lapis-langit-pkHpRCcjDu.jpg">
+        <p>Masjid Istiqlal berada di Jakarta Pusat, masjid terbesar di Asia Tenggara ini dibangun sebagai simbol kemerdekaan Indonesia. Keunikannya terletak pada desain arsitektur modern dan lokasinya yang bersebelahan dengan Gereja Katedral Jakarta.</p>
+    </div>`).addTo(map);
+var marker = L.marker([- 6.1692, 106.8333]).bindPopup(`
+    <div class="popup-content">
+        <h3>Gereja Katedral</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROXamBb2lWnbOfxmQbqsbK3luMqEtSlCYSNKRG9gLSyq-h1kCb_fjZQfMKXbxDmp3fieI&usqp=CAU">
+        <p>Gereja Katedral terletak di seberang Masjid Istiqlal, gereja ini memiliki arsitektur bergaya neo-gotik Eropa. Dibangun pada tahun 1901, Katedral ini menjadi salah satu simbol sejarah agama Katolik di Indonesia.</p>
+    </div>`).addTo(map);
+var marker = L.marker([- 6.1352, 106.8133]).bindPopup(`
+    <div class="popup-content">
+        <h3>Museum Fatahillah</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Museum_Fatahilah_%28Museum_Sejarah_Jakarta%29.jpg">
+        <p> Museum Fatahillah berada di Kota Tua Jakarta, museum ini dulunya merupakan Balai Kota Batavia pada era kolonial Belanda. Di dalamnya terdapat berbagai koleksi sejarah Jakarta, termasuk artefak, peta kuno, dan benda peninggalan era kolonial.</p>
+    </div>`).addTo(map);
+var marker = L.marker([- 6.1761, 106.8222]).bindPopup(`
+    <div class="popup-content">
+        <h3>Museum Nasional Indonesia (Museum Gajah)</h3>
+        <img src="https://asset-2.tstatic.net/tribunnewswiki/foto/bank/images/museum-nasional.jpg">
+        <p> Museum Nasional Indonesia (Museum Gajah) berlokasi di Jakarta Pusat, museum ini memiliki koleksi artefak prasejarah, arca Hindu-Buddha, serta peninggalan kerajaan Nusantara. Patung gajah di depan museum menjadi ciri khasnya. </p>
+    </div>`).addTo(map);
+var marker = L.marker([- 6.2033, 106.8468]).bindPopup(`
+    <div class="popup-content">
+        <h3>Tugu Proklamasi</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Proclamation_Monument_Jakarta.JPG">
+        <p> Tugu Proklamasi terletak di Menteng, Jakarta Pusat, tempat ini merupakan lokasi bersejarah di mana teks Proklamasi Kemerdekaan Indonesia pertama kali dibacakan oleh Soekarno dan Hatta pada 17 Agustus 1945. </p>
+    </div>`).addTo(map);
+var marker = L.marker([- 6.1839, 106.8430]).bindPopup(`
+    <div class="popup-content">
+        <h3>Museum Sumpah Pemuda</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/MuseumSumpahPemuda.jpg">
+        <p> Museum Sumpah Pemuda berada di Senen, Jakarta Pusat, museum ini menyimpan berbagai dokumen dan diorama sejarah tentang Sumpah Pemuda yang dideklarasikan pada 28 Oktober 1928 sebagai tonggak penting dalam perjuangan kemerdekaan.</p>
+    </div>`).addTo(map);
+var marker = L.marker([-  6.1861, 106.8365]).bindPopup(`
+    <div class="popup-content">
+        <h3>Gedung Joang 45</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDiJl8ckAWr7cwz2ZbTamYa2NsflSDwR5STA&s">
+        <p> Gedung ini terletak di Menteng, Jakarta Pusat, gedung ini dulunya menjadi tempat berkumpulnya para pemuda yang menyusun strategi perjuangan untuk kemerdekaan Indonesia. Kini, gedung ini menjadi museum yang menampilkan berbagai foto dan benda bersejarah.</p>
+    </div>`).addTo(map);
+var marker = L.marker([-  6.1270, 106.8083]).bindPopup(`
+    <div class="popup-content">
+        <h3>Museum Bahari</h3>
+        <img src="https://museum.co.id/wp-content/uploads/2020/09/museum-bahari-jakarta.jpeg">
+        <p> Museum Bahari berlokasi di kawasan Sunda Kelapa, Jakarta Utara, museum ini dulunya adalah gudang rempah-rempah pada era kolonial Belanda. Sekarang, museum ini menyimpan koleksi sejarah maritim Indonesia, mencerminkan kejayaan sebagai negara kepulauan.</p>
+    </div>`).addTo(map);
+var marker = L.marker([-  6.1348, 106.8137]).bindPopup(`
+    <div class="popup-content">
+        <h3>Kota Tua Jakarta</h3>
+        <img src="https://img.okezone.com/content/2018/06/23/406/1913033/guide-menikmati-kota-tua-dalam-sehari-ke-mana-saja-a5gVOn69Te.jpg">
+        <p> Kawasan bersejarah yang menyimpan berbagai peninggalan arsitektur kolonial Belanda, seperti Stasiun Jakarta Kota, Cafe Batavia, dan berbagai museum lainnya. Tempat ini menjadi daya tarik bagi wisatawan yang ingin merasakan nuansa Batavia tempo dulu.</p>
+    </div>`).addTo(map);
+    </script>
+
+</body>
+</html>

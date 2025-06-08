@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Gallery</title>
+    <style>
+        body {
+            font-family: Times New Roman, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #000;
+            background-color: white;
+        }
+
+        /* Header */
+        .header {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Content */
+        .content {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 20%;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #ddd;
+        }
+
+        /* Main Content */
+        .main {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .city-content {
+            display: none; /* Semua kota disembunyikan dulu */
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .city-content.active {
+            display: flex; /* Tampilkan kota yang aktif */
+        }
+
+        .text {
+            width: 60%;
+        }
+
+        .image {
+            width: 40%;
+        }
+
+        .image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>City Gallery</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <ul>
+                    <li onclick="showCity('Jakarta')">Jakarta</li>
+                    <li onclick="showCity('Lampung')">Lampung</li>
+                    <li onclick="showCity('London')">London</li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main">
+                <div id="Jakarta" class="city-content active">
+                    <div class="text">
+                        <h2>Jakarta</h2>
+                        <p>Jakarta adalah ibu kota Indonesia sekaligus kota terbesar di negara ini. Terletak di pesisir barat laut Pulau Jawa, Jakarta merupakan pusat pemerintahan, bisnis, dan budaya. Kota ini memiliki populasi lebih dari 10 juta jiwa dan menjadi salah satu kota metropolitan terpadat di dunia.</p>
+                        <p>Jakarta dikenal dengan keberagaman budayanya, gedung pencakar langit, serta pusat perbelanjaan besar. Selain itu, kota ini juga memiliki berbagai destinasi wisata seperti Monumen Nasional (Monas), Kota Tua, dan Kepulauan Seribu.</p>
+                    </div>
+                    <div class="image">
+                        <img src="https://storage.jakarta-tourism.go.id/public/images/article/8437415341664213099.jpg" alt="Gambar Jakarta">
+                    </div>
+                </div>
+
+                <div id="Lampung" class="city-content">
+                    <div class="text">
+                        <h2>Lampung</h2>
+                        <p>Provinsi Lampung terletak di ujung selatan Pulau Sumatra, Indonesia. Ibu kotanya adalah Bandar Lampung, yang merupakan pusat pemerintahan, ekonomi, dan budaya.</p>
+                        <p>Provinsi ini dikenal dengan keindahan alamnya seperti Pantai Pahawang, Teluk Kiluan, dan Taman Nasional Way Kambas, yang menjadi habitat gajah Sumatra.</p>
+                    </div>
+                    <div class="image">
+                        <img src="https://storage.googleapis.com/seo-cms/assets/daya_tarik_menara_siger_lampung_9c15900abe/daya_tarik_menara_siger_lampung_9c15900abe.jpg" alt="Gambar Lampung">
+                    </div>
+                </div>
+
+                <div id="London" class="city-content">
+                    <div class="text">
+                        <h2>London</h2>
+                        <p>London adalah ibu kota Inggris dan merupakan salah satu kota terbesar di dunia. Kota ini merupakan pusat keuangan, budaya, dan sejarah.</p>
+                        <p>London memiliki berbagai ikon terkenal seperti Big Ben, Tower Bridge, dan Buckingham Palace. Kota ini juga merupakan pusat pendidikan dan seni di Eropa.</p>
+                    </div>
+                    <div class="image">
+                        <img src="https://wisatamuda.com/wp-content/uploads/2018/07/4.-Tempat-Wisata-Terbaik-di-London-Inggris-Big-Ben-1024x682.jpg" alt="Gambar London">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Copyright @Veronika Yola Aditya</p>
+        </div>
+    </div>
+
+    <script>
+        function showCity(city) {
+            // Sembunyikan semua kota terlebih dahulu
+            let cities = document.querySelectorAll(".city-content");
+            cities.forEach(cityDiv => cityDiv.classList.remove("active"));
+
+            // Tampilkan kota yang dipilih
+            document.getElementById(city).classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
